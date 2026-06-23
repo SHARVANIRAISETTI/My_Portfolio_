@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@300;400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #0a0e1a;
+    color: #e2e8f0;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #0d1220; }
+  ::-webkit-scrollbar-thumb { background: #1e2a3d; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #0073ff; }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-surface-600/60 backdrop-blur-md border border-white/5 rounded-xl shadow-glass;
+  }
+  .glass-modal {
+    @apply bg-surface-700/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-glass;
+  }
+  .btn-primary {
+    @apply px-5 py-2.5 bg-primary-500 hover:bg-primary-600 text-white font-mono text-sm rounded-lg transition-all duration-200 hover:shadow-glow focus:outline-none focus:ring-2 focus:ring-primary-400;
+  }
+  .btn-ghost {
+    @apply px-5 py-2.5 border border-primary-500/40 text-primary-400 hover:bg-primary-500/10 font-mono text-sm rounded-lg transition-all duration-200;
+  }
+  .tag {
+    @apply px-2.5 py-1 text-xs font-mono bg-surface-500 border border-primary-500/20 text-accent-400 rounded-md;
+  }
+  .section-title {
+    @apply text-2xl font-sans font-semibold text-white mb-1;
+  }
+  .section-sub {
+    @apply text-sm font-mono text-slate-400 mb-8;
+  }
+  .terminal-block {
+    @apply bg-surface-900 border border-surface-400 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto;
+  }
+  .nav-link {
+    @apply text-slate-400 hover:text-accent-400 font-mono text-sm transition-colors duration-200 cursor-pointer;
+  }
+}
+
+@layer utilities {
+  .text-glow-green {
+    text-shadow: 0 0 10px rgba(74, 222, 128, 0.6);
+  }
+  .text-glow-blue {
+    text-shadow: 0 0 10px rgba(0, 115, 255, 0.7);
+  }
+  .text-glow-accent {
+    text-shadow: 0 0 12px rgba(0, 212, 255, 0.7);
+  }
+  .border-glow {
+    box-shadow: 0 0 0 1px rgba(0, 115, 255, 0.3), 0 0 15px rgba(0, 115, 255, 0.15);
+  }
+  .watermark-bg {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 60px,
+      rgba(0,115,255,0.04) 60px,
+      rgba(0,115,255,0.04) 62px
+    );
+  }
+}
+
+.watermark-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.watermark-text::before {
+  content: 'DIGISAMAKSH-SECURE-WEB DIGISAMAKSH-SECURE-WEB DIGISAMAKSH-SECURE-WEB DIGISAMAKSH-SECURE-WEB DIGISAMAKSH-SECURE-WEB DIGISAMAKSH-SECURE-WEB';
+  position: absolute;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(0, 115, 255, 0.12);
+  white-space: nowrap;
+  transform: rotate(-35deg);
+  letter-spacing: 4px;
+  width: 200%;
+  text-align: center;
+  line-height: 2.8;
+  word-spacing: 40px;
+}
